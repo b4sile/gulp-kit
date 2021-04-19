@@ -1,0 +1,76 @@
+.container {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  @media (max-width: $md1+px) {
+    max-width: 970px;
+  }
+  @media (max-width: $md2+px) {
+    max-width: 750px;
+  }
+  @media (max-width: $md3+px) {
+    max-width: none;
+    padding: 0 10px;
+  }
+}
+
+body.lock {
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  flex: 1 1 auto;
+}
+
+.hamburger {
+  width: 30px;
+  height: 18px;
+  cursor: pointer;
+  position: relative;
+
+  & > span,
+  &::after,
+  &::before {
+    width: 100%;
+    background: #fff;
+    height: 10%;
+    position: absolute;
+    transition: all 0.3s ease;
+  }
+
+  &::after {
+    content: '';
+    top: 0;
+  }
+
+  &::before {
+    content: '';
+    bottom: 0;
+  }
+
+  & > span {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  &--active {
+    & > span {
+      transform: scale(0);
+    }
+    &::after {
+      transform: rotate(45deg);
+      top: 8px;
+    }
+    &::before {
+      transform: rotate(-45deg);
+      bottom: 8px;
+    }
+  }
+}

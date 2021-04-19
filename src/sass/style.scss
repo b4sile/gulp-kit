@@ -1,0 +1,14 @@
+@import '~normalize.css/normalize';
+@import 'null';
+@import 'variables';
+@import 'mixins';
+@import 'ui';
+
+//&subset=cyrillic-ext
+//&display=swap
+// @import url(https://fonts.googleapis.com/css?family=Poppins:regular,500,600,700&display=swap);
+$fontFamily: 'Poppins';
+
+body {
+  font-family: $fontFamily, sans-serif;
+}
