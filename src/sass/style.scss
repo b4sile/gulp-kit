@@ -1,6 +1,6 @@
 @import '~normalize.css/normalize';
-@import 'null';
 @import 'variables';
+@import 'null';
 @import 'mixins';
 @import 'ui';
 
@@ -8,6 +8,9 @@
 //&display=swap
 // @import url(https://fonts.googleapis.com/css?family=Poppins:regular,500,600,700&display=swap);
 $fontFamily: 'Poppins';
+// @include font-face($fontFamily, '../fonts/Geometria-Regular', 400);
+// @include font-face($fontFamily, '../fonts/Geometria-Medium', 500);
+// @include font-face($fontFamilya, '../fonts/Geometria-Bold', 700);
 
 body {
   font-family: $fontFamily, sans-serif;

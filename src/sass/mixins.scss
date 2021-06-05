@@ -1,0 +1,31 @@
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@mixin adv($property, $mobSize, $pcSize) {
+  $diff: $maxWidthContainer - $minWidth;
+  $difference: strip-units($diff);
+
+  #{$property}: $pcSize + px;
+  @media (max-width: $maxWidthContainer+px) {
+    #{$property}: calc(
+      #{$mobSize + px} + #{$pcSize - $mobSize} *
+        ((100vw - #{$minWidth}) / #{$difference})
+    );
+  }
+  @media (max-width: $minWidth) {
+    #{$property}: $mobSize + px;
+  }
+}
+
+@mixin font-face($font-name, $path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $font-name;
+    src: local($font-name), url($path + '.woff2') format('woff2'),
+      url($path + '.woff') format('woff'),
+      url($path + '.ttf') format('truetype');
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+  }
+}
